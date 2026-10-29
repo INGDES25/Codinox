@@ -77,6 +77,10 @@
       <div class="card"><div class="icon" aria-hidden="true">🗄</div><h3>Éditeur de base de données</h3><p>Structure des tables, données, requêtes SQL et diagramme, dans une fenêtre dédiée.</p></div>
       <div class="card"><div class="icon" aria-hidden="true">🎓</div><h3>Cours et exercices intégrés</h3><p>Notes de cours consultables à côté du code et panneau d'exercices pour s'entraîner sans quitter l'éditeur.</p></div>
       <div class="card"><div class="icon" aria-hidden="true">⌨</div><h3>Terminal et paquets Python</h3><p>Un terminal intégré et un gestionnaire de paquets pour installer des bibliothèques Python (requests, numpy…) en une commande.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🔀</div><h3>Organigramme du programme</h3><p>Écrivez votre code (Codinox ou pseudo-code) : l'organigramme se dessine dans une fenêtre dédiée, symboles normalisés, un dessin par fonction, export en SVG.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">📐</div><h3>Modélisation UML</h3><p>Diagrammes de classes, de cas d'utilisation et de séquence écrits en français : on tape le texte, le dessin suit. Un squelette de code Python peut en être généré.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">👁</div><h3>Lecture seule</h3><p>Gardez un autre programme sous les yeux, à côté de votre éditeur, sans risquer de le modifier.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🎵</div><h3>Musique de fond</h3><p>Un petit lecteur dans le bandeau du haut pour travailler en musique : liste, boucle, pause et volume.</p></div>
       <div class="card"><div class="icon" aria-hidden="true">🌗</div><h3>Thèmes clair et sombre</h3><p>Une interface soignée, lisible en salle de classe comme le soir.</p></div>
     </div>
     <div class="gallery" style="margin-top:32px">
@@ -87,7 +91,20 @@
   </div>
 </section>
 
-<section id="cnx-langage" class="alt">
+<section id="modelisation" class="alt">
+  <div class="wrap">
+    <h2>Dessiner ce que fait un programme</h2>
+    <p class="sub">Deux fenêtres, ouvertes depuis le menu « Exécuter » : l'organigramme se génère à partir du code de l'onglet actif, et les diagrammes UML s'écrivent en texte, en français.</p>
+    <div class="gallery">
+      <figure class="shot"><img src="img/organigramme.webp" alt="Organigramme d'un programme qui calcule une moyenne : début, lecture, tests oui/non, boucle, fin" loading="lazy" width="1000" height="1474"><figcaption>Organigramme généré depuis le code (Ctrl+Maj+O).</figcaption></figure>
+      <figure class="shot"><img src="img/uml_classes.webp" alt="Diagramme de classes : Animal, Chien, Chat, Dressable et Propriétaire" loading="lazy" width="1400" height="726"><figcaption>Diagramme de classes (Ctrl+Maj+U).</figcaption></figure>
+      <figure class="shot"><img src="img/uml_sequence.webp" alt="Diagramme de séquence : emprunter un livre" loading="lazy" width="1400" height="1257"><figcaption>Diagramme de séquence.</figcaption></figure>
+    </div>
+    <p class="hero-note">Les images sont des exports des fenêtres de Codinox (couleurs claires).</p>
+  </div>
+</section>
+
+<section id="cnx-langage">
   <div class="wrap">
     <h2>CNX en un coup d'œil</h2>
     <p class="sub">Les variables sont déclarées avec leur type, et une erreur de type est signalée avec la ligne, l'explication et la façon de la corriger.</p>
@@ -133,7 +150,7 @@ utilisez from_json(texte) […]</span></pre>
   </div>
 </section>
 
-<section id="telecharger">
+<section id="telecharger" class="alt">
   <div class="wrap">
     <h2>Télécharger</h2>
     <p class="sub">Choisissez votre projet. Les versions précédentes restent disponibles sur la page des téléchargements.</p>

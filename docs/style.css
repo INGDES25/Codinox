@@ -90,7 +90,7 @@ pre { margin: 0; background: var(--code-bg); color: var(--code-fg); border-radiu
 .code-title { font-size: .85rem; font-weight: 600; color: var(--muted); margin: 0 0 8px; text-transform: uppercase; letter-spacing: .04em; }
 .k { color: #569cd6; } .s { color: #ce9178; } .c { color: #6a9955; } .n { color: #b5cea8; } .e { color: #f48771; }
 
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.gallery { align-items: start; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .gallery .wide { grid-column: 1 / -1; }
 
 /* Téléchargements */
