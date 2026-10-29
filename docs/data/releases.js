@@ -1,5 +1,5 @@
 window.CODINOX_SITE = {
-  "repo": "https://github.com/VOTRE-COMPTE/VOTRE-DEPOT",
+  "repo": "https://github.com/INGDES2/Codinox",
   "youtube": "https://www.youtube.com/channel/UCrIPfDknOraA24e07dwppJg",
   "products": {
     "codinox": {
