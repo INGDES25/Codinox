@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Téléchargements : Codinox et CNX</title>
+<meta name="description" content="Dernière version et anciennes versions de Codinox et de CNX.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/codinox.png" alt="" width="32" height="32"><span>Codinox &amp; CNX</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="telechargements.html" aria-current="page">Téléchargements</a>
+      <a href="tutoriels.html">Tutoriels</a>
+      <a class="repo-link" href="#" rel="noopener">GitHub</a>
+      <a class="yt-link" href="https://www.youtube.com/channel/UCrIPfDknOraA24e07dwppJg" rel="noopener">YouTube</a>
+      <button class="theme-btn" type="button" aria-label="Changer de thème">☾ Sombre</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">Téléchargements</h1>
+    <p class="sub">La dernière version de chaque projet est en haut, les versions précédentes sont conservées en dessous. Installez la plus récente, sauf besoin particulier.</p>
+
+    <div id="codinox" style="scroll-margin-top:90px">
+      <div class="dl-head"><h2>Codinox</h2><span class="badge">Environnement de programmation</span></div>
+      <p class="sub">L'éditeur complet : pseudo-code, Python, web, SQL, CNX, PHP, débogueur, éditeur de base de données et terminal.</p>
+      <div class="latest" data-latest="codinox"></div>
+      <div class="history"><h3>Versions précédentes</h3><div data-history="codinox"></div></div>
+    </div>
+
+    <div id="cnx" style="scroll-margin-top:90px; margin-top:56px">
+      <div class="dl-head"><h2>CNX</h2><span class="badge">Langage de programmation</span></div>
+      <p class="sub">Les commandes <code>cnx</code> (scripts) et <code>cnxw</code> (applications web) et la bibliothèque standard. Codinox exécute déjà CNX : cette installation est utile pour lancer des programmes CNX en dehors de l'éditeur.</p>
+      <div class="latest" data-latest="cnx"></div>
+      <div class="history"><h3>Versions précédentes</h3><div data-history="cnx"></div></div>
+    </div>
+
+    <p class="note" style="margin-top:40px">Si Windows affiche un avertissement « éditeur inconnu » au premier lancement (cas d'un installateur non signé numériquement), choisissez « Informations complémentaires », puis « Exécuter quand même ».</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span data-year>2026</span> Kévin HOUESSOU-ADJA. Codinox et CNX sont des logiciels gratuits ; leurs licences sont fournies avec chaque installation.</p>
+    <p><a class="repo-link" href="#" rel="noopener">Code et publications sur GitHub</a> · <a class="yt-link" href="https://www.youtube.com/channel/UCrIPfDknOraA24e07dwppJg" rel="noopener">Chaîne YouTube</a></p>
+  </div>
+</footer>
+<script src="data/releases.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
