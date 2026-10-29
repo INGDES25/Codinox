@@ -1,5 +1,5 @@
 window.CODINOX_SITE = {
-  "repo": "https://github.com/INGDES2/Codinox",
+  "repo": "https://github.com/VOTRE-COMPTE/VOTRE-DEPOT",
   "youtube": "https://www.youtube.com/channel/UCrIPfDknOraA24e07dwppJg",
   "products": {
     "codinox": {
@@ -15,13 +15,13 @@ window.CODINOX_SITE = {
             {
               "platform": "windows",
               "label": "Installateur Windows (64 bits)",
-              "url": "sha256:0d24c7b950f6ec93a86f2b1b4df0c774e293a347241be11bc5e5becfaee28df3",
+              "url": "https://github.com/INGDES25/Codinox/releases/download/v1.0/Codinox-Setup-Win64.exe",
               "size": "180 Mo"
             },
             {
               "platform": "linux",
               "label": "Linux (64 bits, archive)",
-              "url": "sha256:1f465cbbf70abb832284925e37d4dd4b0b5b384ed379f4c55ad28f6e7329e286",
+              "url": "https://github.com/INGDES25/Codinox/releases/download/v1.0/Codinox-linux-x64.tar.gz",
               "size": "137 Mo"
             }
           ]
@@ -41,13 +41,13 @@ window.CODINOX_SITE = {
             {
               "platform": "windows",
               "label": "Installateur Windows (64 bits)",
-              "url": "sha256:61659bcd47398327ea8aa2258b62cceaeb84629a725d3d9bf276c0831f750d48",
+              "url": "https://github.com/INGDES25/Codinox/releases/download/v1.0/CNX-Setup-Win64.exe",
               "size": "100 Mo"
             },
             {
               "platform": "linux",
               "label": "Linux (64 bits, archive)",
-              "url": "sha256:0b96df71e2ae415412e1c5a1c96cf79645250f6699f386ab0286c1ea21cccf92",
+              "url": "https://github.com/INGDES25/Codinox/releases/download/v1.0/CNX-linux-x64.tar.gz",
               "size": "139 Mo"
             }
           ]
