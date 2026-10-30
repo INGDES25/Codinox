@@ -10,7 +10,7 @@ Ajouter une vidéo :
   python ajouter_version.py video --titre "Premiers pas" --produit codinox --duree "6 min" \
       --url https://github.com/VOUS/DEPOT/releases/download/videos/premiers-pas.mp4 --voir https://youtu.be/xxxx
 Changer l'adresse du dépôt GitHub :
-  python ajouter_version.py depot https://github.com/VOUS/DEPOT
+  python ajouter_version.py depot https://github.com/INGDES25/Codinox
 Afficher le contenu :
   python ajouter_version.py liste
 La page affiche toujours la version la plus récente en haut ; les autres passent dans l'historique."""
@@ -46,8 +46,12 @@ def cmd_version(a, data):
         sys.exit("Produit inconnu : %s (choix : %s)" % (a.produit, ", ".join(data["products"])))
     if not re.match(r"^\d+(\.\d+)*$", a.numero):
         sys.exit("Numéro de version invalide : %s (exemple : 1.1 ou 2.0.3)" % a.numero)
-    if any(v["version"] == a.numero for v in prod["versions"]):
-        sys.exit("La version %s de %s existe déjà." % (a.numero, prod["name"]))
+    exist = [v for v in prod["versions"] if v["version"] == a.numero]
+    if exist and not a.remplacer and any(f.get("url") for f in exist[0].get("files", [])):
+        sys.exit("La version %s de %s existe déjà (avec des liens).\n"
+                 "Pour la REMPLACER par les nouveaux liens, relance la même commande en ajoutant : --remplacer" % (a.numero, prod["name"]))
+    if exist:                                   # emplacement vide, ou remplacement demandé
+        prod["versions"].remove(exist[0])
     files = []
     if a.windows:
         files.append({"platform": "windows", "label": "Installateur Windows (64 bits)", "url": a.windows, "size": a.taille_windows or ""})
@@ -71,12 +75,13 @@ def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
     v = sub.add_parser("version", help="ajouter une version")
-    v.add_argument("produit", choices=["codinox", "cnx"]); v.add_argument("numero")
+    v.add_argument("produit", type=str.lower, choices=["codinox", "cnx"]); v.add_argument("numero")
     v.add_argument("--date", help="AAAA-MM-JJ (par défaut : aujourd'hui)")
     v.add_argument("--note", action="append", help="une ligne de nouveautés (répétable)")
+    v.add_argument("--remplacer", action="store_true", help="remplacer la version si elle existe déjà")
     v.add_argument("--windows"); v.add_argument("--taille-windows"); v.add_argument("--linux"); v.add_argument("--taille-linux")
     w = sub.add_parser("video", help="ajouter une vidéo")
-    w.add_argument("--titre", required=True); w.add_argument("--produit", choices=["codinox", "cnx", "general"], default="general")
+    w.add_argument("--titre", required=True); w.add_argument("--produit", type=str.lower, choices=["codinox", "cnx", "general"], default="general")
     w.add_argument("--description"); w.add_argument("--duree"); w.add_argument("--date"); w.add_argument("--taille")
     w.add_argument("--url", help="lien de téléchargement"); w.add_argument("--voir", help="lien pour regarder en ligne (YouTube…)")
     d = sub.add_parser("depot", help="changer l'adresse du dépôt GitHub"); d.add_argument("adresse")
