@@ -17,6 +17,8 @@ directement dans un navigateur pour le prévisualiser.
 
 ## 2. Publier une version (à chaque mise à jour)
 
+(Pour la toute première publication, la version « 1.0 » d'origine, sans lien, est remplacée automatiquement par la commande `version … 1.0`.)
+
 1. Sur GitHub : « Releases » > « Draft a new release », tag `v1.1` (par exemple), titre, puis glisse les installateurs
    (Codinox-Setup, archive Linux…) dans la zone de dépôt de fichiers (2 Go maximum par fichier) et « Publish release ».
 2. Clic droit sur chaque fichier > « Copier l'adresse du lien ».
@@ -29,6 +31,8 @@ directement dans un navigateur pour le prévisualiser.
    (sous Linux, remplace `^` par `\`). Même commande avec `cnx` pour CNX. La date du jour est utilisée si tu ne la donnes pas (`--date 2027-01-15`).
 4. Renvoie le fichier `data/releases.js` modifié sur GitHub. La nouvelle version devient « Dernière version » et l'ancienne passe dans l'historique.
    Rien d'autre à changer : les boutons de la page d'accueil se mettent à jour tout seuls.
+
+Si le script répond « La version 1.0 existe déjà (avec des liens) » alors que tu veux changer les liens, relance la même commande en ajoutant `--remplacer`.
 
 `python ajouter_version.py liste` affiche ce qui est publié. Tu peux aussi modifier `data/releases.js` à la main (c'est du texte lisible).
 
@@ -60,3 +64,8 @@ La page Tutoriels affiche alors un lecteur intégré (la vidéo ne se charge qu'
   Les vrais téléchargements ne peuvent être vérifiés qu'une fois les fichiers publiés sur GitHub.
 * Le site n'a pas de statistiques de téléchargement ni de formulaire de contact.
 * Les textes de présentation sont à relire : ils reprennent les fonctions réelles de Codinox, mais c'est à toi de valider le ton.
+
+## Nouveautés
+- **cnx.html** : page complète dédiée au langage CNX (exemples réellement exécutés, bibliothèque standard, utilisation sans Codinox).
+- **Agrandissement des images** : toute capture du site s'ouvre en grand au clic (flèches ← → pour naviguer, Échap pour fermer).
+- Nouvelles images : `img/cnx_*.webp`. Mettez tout le contenu du dossier dans `docs/` du dépôt GitHub.

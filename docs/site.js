@@ -219,11 +219,83 @@
     draw();
   }
 
+  /* ---------- images : un clic les agrandit (clavier : Entrée, flèches, Échap) ---------- */
+  function initLightbox() {
+    var imgs = Array.prototype.slice.call(document.querySelectorAll(".shot img, img[data-zoom]"));
+    if (!imgs.length) return;
+    var box = null, big, cap, count, prev, next, close, idx = 0, opener = null;
+    function captionOf(i) {
+      var f = i.closest ? i.closest("figure") : null, c = f ? f.querySelector("figcaption") : null;
+      return c ? c.textContent : (i.getAttribute("alt") || "");
+    }
+    function show(n) {
+      idx = (n + imgs.length) % imgs.length;
+      big.src = imgs[idx].currentSrc || imgs[idx].src;
+      big.alt = imgs[idx].getAttribute("alt") || "";
+      cap.textContent = captionOf(imgs[idx]);
+      count.textContent = imgs.length > 1 ? (idx + 1) + " / " + imgs.length : "";
+    }
+    function build() {
+      box = el("div", { "class": "lightbox", role: "dialog", "aria-modal": "true", "aria-label": "Image agrandie" });
+      big = el("img", { alt: "" });
+      cap = el("figcaption");
+      count = el("span", { "class": "lb-count", "aria-hidden": "true" });
+      close = el("button", { "class": "lb-btn lb-close", type: "button", "aria-label": "Fermer l’image (Échap)", text: "✕" });
+      prev = el("button", { "class": "lb-btn lb-prev", type: "button", "aria-label": "Image précédente", text: "‹" });
+      next = el("button", { "class": "lb-btn lb-next", type: "button", "aria-label": "Image suivante", text: "›" });
+      box.appendChild(count); box.appendChild(close);
+      if (imgs.length > 1) { box.appendChild(prev); box.appendChild(next); }
+      box.appendChild(el("figure", {}, [big, cap]));
+      box.addEventListener("click", function (e) { if (e.target !== prev && e.target !== next) closeBox(); });
+      close.addEventListener("click", closeBox);
+      prev.addEventListener("click", function (e) { e.stopPropagation(); show(idx - 1); });
+      next.addEventListener("click", function (e) { e.stopPropagation(); show(idx + 1); });
+    }
+    function onKey(e) {
+      if (!box) return;
+      if (e.key === "Escape") { e.preventDefault(); closeBox(); }
+      else if (e.key === "ArrowLeft" && imgs.length > 1) { e.preventDefault(); show(idx - 1); }
+      else if (e.key === "ArrowRight" && imgs.length > 1) { e.preventDefault(); show(idx + 1); }
+      else if (e.key === "Tab") {                      /* le focus reste dans la fenêtre d'image */
+        var f = Array.prototype.slice.call(box.querySelectorAll("button")), i = f.indexOf(document.activeElement);
+        e.preventDefault();
+        f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+      }
+    }
+    function open(n) {
+      if (box) return;
+      opener = document.activeElement;
+      build(); show(n);
+      document.body.appendChild(box);
+      document.documentElement.classList.add("lb-open");
+      document.addEventListener("keydown", onKey);
+      close.focus();
+    }
+    function closeBox() {
+      if (!box) return;
+      document.removeEventListener("keydown", onKey);
+      document.body.removeChild(box); box = null;
+      document.documentElement.classList.remove("lb-open");
+      if (opener && opener.focus) { try { opener.focus(); } catch (e) {} }
+    }
+    imgs.forEach(function (im, n) {
+      im.setAttribute("data-zoomable", "");
+      im.setAttribute("tabindex", "0");
+      im.setAttribute("role", "button");
+      im.setAttribute("aria-label", "Agrandir l’image : " + (im.getAttribute("alt") || captionOf(im)));
+      var f = im.closest ? im.closest("figure") : null;
+      if (f) f.classList.add("has-zoom");
+      im.addEventListener("click", function () { open(n); });
+      im.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(n); } });
+    });
+  }
+
   function init() {
     initThemeButton();
     document.querySelectorAll("[data-latest]").forEach(renderLatest);
     document.querySelectorAll("[data-history]").forEach(renderHistory);
     initHeroButtons();
+    initLightbox();
     var vn = document.getElementById("videos");
     if (vn) renderVideos(vn);
     document.querySelectorAll(".repo-link").forEach(function (a) { if (DATA.repo) a.setAttribute("href", DATA.repo); });

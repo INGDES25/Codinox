@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CNX : le langage de programmation de Codinox</title>
+<meta name="description" content="CNX (Code Neo X) : un langage lisible, typé et orienté objet, avec maths, SQL, fichiers et Web intégrés, qui explique ses erreurs en français.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/codinox.png" alt="" width="32" height="32"><span>Codinox &amp; CNX</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="cnx.html" aria-current="page">CNX</a>
+      <a href="telechargements.html">Téléchargements</a>
+      <a href="tutoriels.html">Tutoriels</a>
+      <a class="yt-link" href="https://www.youtube.com/channel/UCrIPfDknOraA24e07dwppJg" rel="noopener">YouTube</a>
+      <button class="theme-btn" type="button" aria-label="Changer de thème">☾ Sombre</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Langage de programmation</span>
+      <h1>CNX : un langage lisible qui explique ses erreurs.</h1>
+      <p class="lead"><strong>CNX</strong> (Code Neo X) est le langage de Codinox. Il est typé, orienté objet, et réunit les maths, le SQL, les fichiers et le Web sans rien installer de plus. Il s’écrit dans Codinox, ou s’exécute seul avec <code>cnx</code> et <code>cnxw</code>.</p>
+      <div class="cta">
+        <a class="btn" data-hero-dl="cnx" href="telechargements.html#cnx">⬇ Télécharger CNX</a>
+        <a class="btn secondary" href="#exemples">Voir des exemples exécutés</a>
+      </div>
+      <p class="hero-note">Gratuit · Windows et Linux · <a href="telechargements.html#cnx">toutes les versions</a></p>
+    </div>
+    <figure class="shot"><img src="img/cnx_editeur.webp" alt="Codinox ouvert sur un programme CNX : classes Vehicule et Voiture, avec la console en dessous" loading="lazy" width="1212" height="682"><figcaption>Un programme CNX dans l’éditeur de Codinox.</figcaption></figure>
+  </div>
+</section>
+
+<section class="alt" id="idees">
+  <div class="wrap">
+    <h2>Quatre idées pour un langage d’apprentissage</h2>
+    <p class="sub">CNX est pensé pour qu’on comprenne ce que l’on écrit, et pour qu’une erreur serve à apprendre.</p>
+    <div class="grid two">
+      <div class="card"><div class="icon" aria-hidden="true">📖</div><h3>Lisible</h3><p>On affecte avec <code>:=</code>, on affiche avec <code>output</code>, les blocs sont entre accolades et chaque instruction se termine par un point-virgule. Un programme tient entre <code>&lt;cnx&gt;</code> et <code>&lt;/cnx&gt;</code>.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🔒</div><h3>Typé</h3><p>Chaque variable a un type déclaré : <code>int</code>, <code>float</code>, <code>char</code>, <code>string</code>, <code>bool</code>, <code>list</code>, <code>dict</code>, et <code>const</code> pour une constante. Une erreur de type est signalée avec la ligne et la façon de la corriger.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🧩</div><h3>Orienté objet</h3><p>Classes, héritage (<code>from</code>), constructeur (<code>make</code>), méthodes (<code>process</code>), <code>this</code>, <code>super</code> et <code>new</code>. La visibilité se règle avec <code>public</code>, <code>protected</code> et <code>private</code>.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🔋</div><h3>Tout intégré</h3><p>Maths symboliques, SQL (SQLite), fichiers, CSV et JSON, pages Web, et une bibliothèque standard de 130 fonctions : rien à installer pour les tâches courantes d’un cours.</p></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>8</b><span>types de données</span></div>
+      <div class="stat"><b>130</b><span>fonctions dans la bibliothèque standard</span></div>
+      <div class="stat"><b>2</b><span>exécutables autonomes : cnx et cnxw</span></div>
+      <div class="stat"><b>0</b><span>installation en plus pour le calcul, le SQL et le Web</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="programme">
+  <div class="wrap">
+    <h2>Un premier programme, pas à pas</h2>
+    <p class="sub">Voici un programme complet de quelques lignes, puis ce que fait chaque partie.</p>
+    <div class="cols2">
+      <div>
+        <p class="code-title">bonjour.cnx</p>
+        <pre><span class="k">&lt;cnx&gt;</span> bonjour
+    <span class="k">string</span> : nom;
+    <span class="k">int</span> : age;
+    <span class="k">start</span>
+        nom := <span class="s">&quot;Alice&quot;</span>;
+        age := <span class="n">17</span>;
+        <span class="k">output</span>(<span class="s">&quot;Bonjour $nom$, dans 10 ans : $age+10$ ans\n&quot;</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre>
+        <p class="code-title" style="margin-top:16px">Résultat</p>
+        <pre class="out">Bonjour Alice, dans 10 ans : 27 ans</pre>
+      </div>
+      <ol class="steps">
+        <li><span>La balise <code>&lt;cnx&gt; bonjour</code> ouvre le programme et lui donne son nom ; <code>&lt;/cnx&gt;</code> le ferme.</span></li>
+        <li><span>Les <b>variables sont déclarées avant <code>start</code></b>, avec leur type : <code>string : nom;</code> et <code>int : age;</code>.</span></li>
+        <li><span>Les instructions s’écrivent entre <code>start</code> et <code>end</code>.</span></li>
+        <li><span><code>:=</code> donne une valeur à une variable, et le <b>point-virgule</b> termine chaque instruction.</span></li>
+        <li><span>Les signes <code>$…$</code> insèrent une variable <i>ou un calcul</i> directement dans un texte : ici <code>$age+10$</code> donne 27.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="structures">
+  <div class="wrap">
+    <h2>Les structures du langage</h2>
+    <p class="sub">Conditions, boucles, choix multiple, fonctions et gestion des erreurs : on retrouve les outils classiques, avec une syntaxe homogène.</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>Pour…</th><th>On écrit</th></tr>
+      <tr><td>Choisir (condition)</td><td><code>if(x &gt; 0) : { … } else : { … }</code></td></tr>
+      <tr><td>Répéter un nombre de fois connu</td><td><code>for(i from 1 to 10 step 2) : { … }</code></td></tr>
+      <tr><td>Répéter tant qu’une condition est vraie</td><td><code>while(n &gt; 0) : { … }</code></td></tr>
+      <tr><td>Répéter au moins une fois</td><td><code>do : { … } until(n == 0);</code></td></tr>
+      <tr><td>Choisir entre plusieurs cas</td><td><code>by(n) : { case 0 : … default : … }</code></td></tr>
+      <tr><td>Sortir d’une boucle, passer au tour suivant</td><td><code>break</code> · <code>continue</code></td></tr>
+      <tr><td>Écrire une fonction ou une procédure</td><td><code>script carre(int : x) : int { return x * x; }</code></td></tr>
+      <tr><td>Attraper et signaler une erreur</td><td><code>try : { … } catch(e) : { … }</code> · <code>throw</code></td></tr>
+      <tr><td>Importer un module de la bibliothèque</td><td><code>import "std/stats.cnx";</code></td></tr>
+    </table></div>
+    <div class="ex" style="margin-top:28px">
+      <h3>Un exemple avec une liste, une boucle et une fonction</h3>
+      <p>On additionne cinq notes, puis un <code>script</code> en déduit la mention.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> notes
+    <span class="k">list</span> : notes;
+    <span class="k">int</span> : i;
+    <span class="k">float</span> : somme, moyenne;
+
+    <span class="k">script</span> mention(<span class="k">float</span> : m) : <span class="k">string</span> {
+        <span class="k">if</span>(m &gt;= <span class="n">16</span>) : { <span class="k">return</span> <span class="s">&quot;Très bien&quot;</span>; }
+        <span class="k">if</span>(m &gt;= <span class="n">14</span>) : { <span class="k">return</span> <span class="s">&quot;Bien&quot;</span>; }
+        <span class="k">if</span>(m &gt;= <span class="n">10</span>) : { <span class="k">return</span> <span class="s">&quot;Passable&quot;</span>; }
+        <span class="k">return</span> <span class="s">&quot;Insuffisant&quot;</span>;
+    }
+
+    <span class="k">start</span>
+        notes := [<span class="n">12</span>, <span class="n">15</span>, <span class="n">9</span>, <span class="n">18</span>, <span class="n">14</span>];
+        somme := <span class="n">0</span>;
+        <span class="k">for</span>(i <span class="k">from</span> <span class="n">0</span> <span class="k">to</span> length(notes) - <span class="n">1</span>) : {
+            somme := somme + notes[i];
+        }
+        moyenne := somme / length(notes);
+        <span class="k">output</span>(<span class="s">&quot;Moyenne : &quot;</span>, moyenne, <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;Mention : &quot;</span>, mention(moyenne), <span class="s">&quot;\n&quot;</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">Moyenne : 13.6
+Mention : Passable</pre></div></div>
+    </div>
+    <div class="ex">
+      <h3>Attraper une erreur, choisir entre plusieurs cas</h3>
+      <p>Une division par zéro est interceptée par <code>try</code> / <code>catch</code> au lieu d’arrêter le programme, puis <code>by</code> choisit une branche.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> essai
+    <span class="k">int</span> : a, b;
+    <span class="k">start</span>
+        a := <span class="n">10</span>;
+        b := <span class="n">0</span>;
+        <span class="k">try</span> : {
+            <span class="k">output</span>(a div b, <span class="s">&quot;\n&quot;</span>);
+        } <span class="k">catch</span>(e) : {
+            <span class="k">output</span>(<span class="s">&quot;Erreur attrapée : &quot;</span>, e, <span class="s">&quot;\n&quot;</span>);
+        }
+        <span class="k">by</span>(a) : {
+            <span class="k">case</span> <span class="n">10</span> : <span class="k">output</span>(<span class="s">&quot;dix\n&quot;</span>);
+            <span class="k">default</span> : <span class="k">output</span>(<span class="s">&quot;autre\n&quot;</span>);
+        }
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">Erreur attrapée : [Ligne 7] Division entière (div) par zéro impossible.
+dix</pre></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="exemples">
+  <div class="wrap">
+    <h2>Des exemples exécutés</h2>
+    <p class="sub">Chaque programme ci-dessous a été lancé avec CNX ; les résultats affichés sont ceux obtenus.</p>
+
+    <div class="ex">
+      <h3>Objets et héritage</h3>
+      <p>Une classe <code>Voiture</code> hérite de <code>Vehicule</code> avec <code>from</code>, appelle le constructeur du parent avec <code>super</code> et redéfinit une méthode.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> vehicules
+    <span class="k">class</span> Vehicule : {
+        <span class="k">string</span> : marque;
+        <span class="k">protected</span> <span class="k">int</span> : vitesse;
+
+        <span class="k">make</span> Vehicule(<span class="k">string</span> : m) : {
+            <span class="k">this</span>.marque := m;
+            <span class="k">this</span>.vitesse := <span class="n">0</span>;
+            <span class="k">stop</span>;
+        }
+
+        <span class="k">process</span> accelerer(<span class="k">int</span> : v) : {
+            <span class="k">this</span>.vitesse := <span class="k">this</span>.vitesse + v;
+            <span class="k">stop</span>;
+        }
+
+        <span class="k">process</span> decrire() : <span class="k">string</span> {
+            <span class="k">return</span> <span class="k">this</span>.marque + <span class="s">&quot; roule à &quot;</span> + str(<span class="k">this</span>.vitesse) + <span class="s">&quot; km/h&quot;</span>;
+        }
+    }
+
+    <span class="k">class</span> Voiture <span class="k">from</span> Vehicule : {
+        <span class="k">make</span> Voiture(<span class="k">string</span> : m) : {
+            <span class="k">super</span>(m);
+            <span class="k">stop</span>;
+        }
+
+        <span class="k">process</span> decrire() : <span class="k">string</span> {
+            <span class="k">return</span> <span class="s">&quot;Voiture : &quot;</span> + <span class="k">super</span>.decrire();
+        }
+    }
+
+    <span class="k">start</span>
+        Voiture : ma;
+        ma := <span class="k">new</span> Voiture(<span class="s">&quot;Toyota&quot;</span>);
+        ma.accelerer(<span class="n">60</span>);
+        <span class="k">output</span>(ma.decrire(), <span class="s">&quot;\n&quot;</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">Voiture : Toyota roule à 60 km/h</pre><figure class="shot"><img src="img/cnx_resultat.webp" alt="Fenêtre de résultat de Codinox : « Voiture : Toyota roule à 60 km/h »" loading="lazy" width="1000" height="246"><figcaption>Le résultat, dans la fenêtre d’exécution de Codinox (touche F5).</figcaption></figure><figure class="shot"><img src="img/cnx_editeur.webp" alt="L’éditeur de Codinox avec le programme Vehicule et Voiture" loading="lazy" width="1212" height="682"><figcaption>Le programme dans l’éditeur de Codinox.</figcaption></figure></div></div>
+    </div>
+
+    <div class="ex">
+      <h3>Maths symboliques</h3>
+      <p>Dériver, factoriser, développer, chercher une primitive : le calcul formel est intégré, sans bibliothèque à ajouter.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> calcul
+    <span class="k">start</span>
+        <span class="k">output</span>(<span class="s">&quot;dérivée de x^3 + 2x : &quot;</span>, derive(<span class="s">&quot;x^3 + 2*x&quot;</span>, <span class="s">&quot;x&quot;</span>), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;factorisation de x^2 - 9 : &quot;</span>, factor(<span class="s">&quot;x^2 - 9&quot;</span>), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;développement de (x+1)^2 : &quot;</span>, develop(<span class="s">&quot;(x+1)^2&quot;</span>), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;primitive de 2x : &quot;</span>, primitive(<span class="s">&quot;2*x&quot;</span>, <span class="s">&quot;x&quot;</span>), <span class="s">&quot;\n&quot;</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">dérivée de x^3 + 2x : 3*x^2 + 2
+factorisation de x^2 - 9 : (x - 3)*(x + 3)
+développement de (x+1)^2 : x^2 + 2*x + 1
+primitive de 2x : x^2</pre></div></div>
+    </div>
+
+    <div class="ex">
+      <h3>Base de données SQL</h3>
+      <p>Une base SQLite se crée, se remplit et s’interroge directement depuis le programme.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> base
+    <span class="k">list</span> : lignes;
+    <span class="k">int</span> : i;
+    <span class="k">start</span>
+        sql_connect(<span class="s">&quot;:memory:&quot;</span>);
+        sql_execute(<span class="s">&quot;CREATE TABLE eleves (nom TEXT, note REAL)&quot;</span>);
+        sql_execute(<span class="s">&quot;INSERT INTO eleves VALUES (&#x27;Awa&#x27;, 15.5), (&#x27;Koffi&#x27;, 9), (&#x27;Mariam&#x27;, 18)&quot;</span>);
+        lignes := sql_query(<span class="s">&quot;SELECT nom, note FROM eleves WHERE note &gt;= 10 ORDER BY note DESC&quot;</span>);
+        <span class="k">for</span>(i <span class="k">from</span> <span class="n">0</span> <span class="k">to</span> length(lignes) - <span class="n">1</span>) : {
+            <span class="k">output</span>(lignes[i][<span class="n">0</span>], <span class="s">&quot; : &quot;</span>, lignes[i][<span class="n">1</span>], <span class="s">&quot;\n&quot;</span>);
+        }
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">Mariam : 18.0
+Awa : 15.5</pre></div></div>
+    </div>
+
+    <div class="ex">
+      <h3>Bibliothèque standard : statistiques et textes</h3>
+      <p>On importe un module avec <code>import</code>, puis on appelle ses fonctions, préfixées par le nom du module.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> stats
+    <span class="k">import</span> <span class="s">&quot;std/stats.cnx&quot;</span>;
+    <span class="k">import</span> <span class="s">&quot;std/text.cnx&quot;</span>;
+    <span class="k">list</span> : notes;
+    <span class="k">start</span>
+        notes := [<span class="n">12</span>, <span class="n">15</span>, <span class="n">9</span>, <span class="n">18</span>, <span class="n">14</span>];
+        <span class="k">output</span>(<span class="s">&quot;moyenne : &quot;</span>, mean(notes), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;médiane : &quot;</span>, stats_median(notes), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;écart-type : &quot;</span>, tofix(stats_stdev_sample(notes), <span class="n">2</span>), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(text_slug(<span class="s">&quot;L&#x27;été à Cotonou : bilan 2026&quot;</span>), <span class="s">&quot;\n&quot;</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">moyenne : 13.6
+médiane : 14
+écart-type : 3.36
+l-ete-a-cotonou-bilan-2026</pre></div></div>
+    </div>
+
+    <div class="ex">
+      <h3>Dates et nombres</h3>
+      <p>Les modules <code>std/dates.cnx</code> et <code>std/maths.cnx</code> couvrent les calculs de calendrier et d’arithmétique.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> dates
+    <span class="k">import</span> <span class="s">&quot;std/dates.cnx&quot;</span>;
+    <span class="k">import</span> <span class="s">&quot;std/maths.cnx&quot;</span>;
+    <span class="k">start</span>
+        <span class="k">output</span>(<span class="s">&quot;2028 est bissextile ? &quot;</span>, date_is_leap(<span class="n">2028</span>), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;jours en février 2028 : &quot;</span>, date_days_in_month(<span class="n">2028</span>, <span class="n">2</span>), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;nombres premiers jusqu&#x27;à 30 : &quot;</span>, to_json(math_primes_up_to(<span class="n">30</span>)), <span class="s">&quot;\n&quot;</span>);
+        <span class="k">output</span>(<span class="s">&quot;facteurs premiers de 360 : &quot;</span>, to_json(math_prime_factors(<span class="n">360</span>)), <span class="s">&quot;\n&quot;</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">2028 est bissextile ? true
+jours en février 2028 : 29
+nombres premiers jusqu&#x27;à 30 : [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+facteurs premiers de 360 : [2, 2, 2, 3, 3, 5]</pre></div></div>
+    </div>
+
+    <div class="ex">
+      <h3>Une erreur expliquée, en français</h3>
+      <p>On affecte du texte à une variable déclarée entière. CNX arrête le programme, indique la ligne, explique le problème et propose des solutions pour convertir un texte en nombre.</p>
+      <div class="code-pair"><div><p class="code-title">Programme CNX</p><pre><span class="k">&lt;cnx&gt;</span> erreur
+    <span class="k">int</span> : age;
+    <span class="k">start</span>
+        age := <span class="s">&quot;trente&quot;</span>;
+        <span class="k">output</span>(age);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Résultat</p><pre class="out">Erreur d’exécution (erreur.cnx, ligne 4) : Type incompatible pour 'age' : attendu un entier (int), mais reçu une chaîne ("trente"). Les chaînes ne peuvent pas être converties implicitement en entiers. Pour convertir un texte en nombre, utilisez from_json(texte) […]</pre><figure class="shot"><img src="img/cnx_erreur.webp" alt="Fenêtre de résultat de Codinox affichant une erreur de type expliquée en français" loading="lazy" width="1000" height="266"><figcaption>L’erreur telle qu’elle s’affiche dans Codinox, avec le numéro de ligne.</figcaption></figure></div></div>
+    </div>
+
+    <div class="ex">
+      <h3>Une application Web en quelques lignes</h3>
+      <p>Un fichier <code>.cnxw</code> décrit une page avec <code>set_html</code>, relie un bouton à un <code>script</code> avec <code>click</code> et l’affiche avec <code>show_web</code>. L’application s’ouvre dans le navigateur ; la fermer arrête le programme.</p>
+      <div class="code-pair"><div><p class="code-title">compteur.cnxw (version abrégée)</p><pre><span class="k">&lt;cnx&gt;</span> compteur
+    <span class="k">int</span> : total;
+
+    <span class="k">script</span> incrementer() : {
+        total := total + <span class="n">1</span>;
+        set_text(<span class="s">&quot;valeur&quot;</span>, str(total));
+        <span class="k">stop</span>;
+    }
+
+    <span class="k">start</span>
+        total := <span class="n">0</span>;
+        set_html(<span class="s">&quot;&lt;h2&gt;Compteur CNX&lt;/h2&gt;&lt;div id=&#x27;valeur&#x27;&gt;0&lt;/div&gt;&quot;</span> +
+                 <span class="s">&quot;&lt;button id=&#x27;plus&#x27;&gt;+ 1&lt;/button&gt;&quot;</span>);
+        click(<span class="s">&quot;plus&quot;</span>, <span class="s">&quot;incrementer&quot;</span>);
+        show_web(<span class="s">&quot;Compteur CNX&quot;</span>, <span class="n">420</span>, <span class="n">360</span>);
+    <span class="k">end</span>
+<span class="k">&lt;/cnx&gt;</span></pre></div><div><p class="code-title">Dans le navigateur, après trois clics sur « + 1 »</p><figure class="shot"><img src="img/cnx_web.webp" alt="Application Web CNX : un compteur affichant 3 et trois boutons" loading="lazy" width="840" height="460"><figcaption>L’application dans le navigateur.</figcaption></figure></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="bibliotheque">
+  <div class="wrap">
+    <h2>Une bibliothèque standard de 130 fonctions</h2>
+    <p class="sub">Six modules écrits en CNX, prêts à importer. Leurs fonctions sont préfixées par le nom du module : aucun conflit avec vos propres noms. La liste complète est dans le fichier <code>REFERENCE.md</code>, fourni avec CNX.</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <tr><th>Module</th><th>Contenu</th><th class="num">Fonctions</th><th>Exemples</th></tr>
+      <tr><td><code>std/stats.cnx</code></td><td><b>Statistiques</b><br><span class="muted">moyenne, médiane, quartiles, écart-type, régression linéaire, corrélation, histogramme</span></td><td class="num">19</td><td><code>stats_median</code>, <code>stats_linreg</code></td></tr><tr><td><code>std/text.cnx</code></td><td><b>Textes</b><br><span class="muted">compléter, centrer, titre, initiales, adresse web (slug), palindrome, distance de Levenshtein</span></td><td class="num">28</td><td><code>text_slug</code>, <code>text_pad_left</code></td></tr><tr><td><code>std/dates.cnx</code></td><td><b>Dates et heures</b><br><span class="muted">année bissextile, jours dans un mois, écarts entre dates, mise en forme</span></td><td class="num">24</td><td><code>date_is_leap</code>, <code>date_days_in_month</code></td></tr><tr><td><code>std/files.cnx</code></td><td><b>Fichiers, CSV et JSON</b><br><span class="muted">lire et écrire des lignes, ajouter à un fichier, compter les lignes</span></td><td class="num">18</td><td><code>file_read_lines</code>, <code>file_write_lines</code></td></tr><tr><td><code>std/data.cnx</code></td><td><b>Traitement de données</b><br><span class="muted">colonnes, valeurs distinctes, effectifs, conversion de nombres</span></td><td class="num">20</td><td><code>data_column</code>, <code>data_count_by</code></td></tr><tr><td><code>std/maths.cnx</code></td><td><b>Mathématiques (entiers)</b><br><span class="muted">nombres premiers, crible d’Ératosthène, facteurs premiers</span></td><td class="num">21</td><td><code>math_is_prime</code>, <code>math_prime_factors</code></td></tr>
+    </table></div>
+    <p class="hero-note">Une erreur de paramètre déclenche une erreur claire, que l’on peut attraper avec <code>try</code> / <code>catch</code>.</p>
+  </div>
+</section>
+
+<section id="seul">
+  <div class="wrap">
+    <h2>CNX s’utilise aussi sans Codinox</h2>
+    <p class="sub">CNX est livré comme un exécutable autonome, sans l’éditeur : même interpréteur et même bibliothèque standard que dans Codinox. Un programme écrit dans Codinox s’exécute avec <code>cnx</code>, et inversement.</p>
+    <div class="cols2">
+      <div>
+        <p class="code-title">En ligne de commande</p>
+<pre><span class="c">// exécuter un programme</span>
+cnx programme.cnx
+
+<span class="c">// vérifier la syntaxe sans l'exécuter</span>
+cnx --check programme.cnx
+
+<span class="c">// lancer une application web</span>
+cnx compteur.cnxw
+
+<span class="c">// arrêter les applications lancées sans console</span>
+cnx --stop-all</pre>
+        <p class="hero-note">Exemple de vérification : <code>cnx --check bonjour.cnx</code> répond « bonjour.cnx : syntaxe correcte. »</p>
+      </div>
+      <div class="grid" style="gap:14px">
+        <div class="card"><h3><code>cnx</code></h3><p>Exécute un script dans la console.</p></div>
+        <div class="card"><h3><code>cnxw</code></h3><p>Lance une application web sans fenêtre de console.</p></div>
+        <div class="card"><h3>Double-clic</h3><p>L’installateur propose d’associer les fichiers <code>.cnx</code> et <code>.cnxw</code>, et d’ajouter CNX au PATH pour taper <code>cnx</code> depuis n’importe quel dossier. Après l’installation, il faut fermer puis rouvrir les terminaux déjà ouverts.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="savoir">
+  <div class="wrap">
+    <h2>Bon à savoir</h2>
+    <div class="grid three">
+      <div class="card"><div class="icon" aria-hidden="true">🛡</div><h3>Mode sûr</h3><p>Avant d’exécuter un script reçu par Internet qui peut agir sur l’ordinateur (lancer des commandes, écrire ou supprimer des fichiers, accéder au réseau), CNX demande confirmation. Un script qui ne fait que calculer et afficher ne pose aucune question. Ce n’est pas une isolation complète : n’exécutez que des scripts de source connue.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🟨</div><h3>Export JavaScript</h3><p>Un programme CNX peut être converti en fichier JavaScript avec <code>into_js</code>. Dans ce JavaScript, les très grands entiers ne sont exacts que jusqu’à 2<sup>53</sup>.</p></div>
+      <div class="card"><div class="icon" aria-hidden="true">🎓</div><h3>Pensé pour apprendre</h3><p>CNX vise les cours, les exercices et les programmes d’usage courant, avec des messages d’erreur qui expliquent. Les notes de cours de Codinox le détaillent, à côté du code.</p></div>
+    </div>
+    <p style="margin-top:32px"><a class="btn" href="telechargements.html#cnx">⬇ Télécharger CNX</a> <a class="btn secondary" href="telechargements.html#codinox">Télécharger Codinox</a> <a class="btn secondary" href="tutoriels.html">Voir les tutoriels vidéo</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span data-year>2026</span> Kévin HOUESSOU-ADJA. Codinox et CNX sont des logiciels gratuits ; leurs licences sont fournies avec chaque installation.</p>
+    <p><a class="yt-link" href="https://www.youtube.com/channel/UCrIPfDknOraA24e07dwppJg" rel="noopener">Chaîne YouTube</a></p>
+  </div>
+</footer>
+<script src="data/releases.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
